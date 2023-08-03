@@ -10,10 +10,14 @@
 	console.log(data);
 </script>
 
-<nav class="mt-8 flex flex-wrap">
+<svelte:head>
+	<title>{zine.title} | This is OUR VALUE</title>
+</svelte:head>
+
+<nav class="mt-8 w-full flex flex-wrap text-small bg-gray-400">
   {#each zines as z}
   <a href={`/zine/${z.username}`}>
-    <div class="inline-block m-0 p-4 w-fit bg-gray-400 text-white hover:bg-red-900"
+    <div class="inline-block m-0 p-2 w-fit bg-gray-400 text-white hover:bg-red-900 hover:font-bold"
       class:bg-red-800={z.username === zine.username}>
       {z.price}
     </div>  

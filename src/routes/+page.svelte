@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Zine Stand 2022</title>
+	<title>This is OUR VALUE</title>
 </svelte:head>
 
 <P class="my-8">
@@ -23,13 +23,16 @@
 <div class="lg:grid lg:grid-cols-4 lg:gap-4">
   {#each zines as zine}
   <Card class="mb-8">
-    <p class="mb-4 p-4 w-fit text-xl font-bold bg-red-800 text-white hover:bg-red-900">{zine.price}</p>
-    <a href={`zine/${zine.username}`}><img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} /></a>
+    <p class="mb-4 p-4 w-full text-xl font-bold bg-red-800 text-white hover:bg-red-900">{zine.price}</p>
+    <img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} />
+    <div>
+      <Button class="w-fit mt-4" href={zine.available ? `zine/${zine.username}` : `#`}
+        disabled={!zine.available}>読む</Button>
+      {#if zine.visibility === '限定公開'}<Badge class="w-fit" color="dark">限定公開</Badge>{/if}
+    </div>
     <h3 class="mt-2 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{zine.title}</h3>
     <p class="mb-2 font-bold">{zine.author}</p>
     <p>{zine.description}</p>
-    <Button class="w-fit mt-4" href={`zine/${zine.username}`}>読む</Button>    
-    {#if zine.visibility === '限定公開'}<Badge class="w-fit" color="dark">限定公開</Badge>{/if}
   </Card>
   {/each}
 </div>
