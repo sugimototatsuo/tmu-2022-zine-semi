@@ -1,7 +1,7 @@
 <script>
   import * as d3 from 'd3';
 	import { goto } from '$app/navigation';
-  import { Carousel, Card, Pagination, ChevronLeft, ChevronRight } from 'flowbite-svelte';
+  import { Carousel, Card, Pagination, PaginationItem, ChevronLeft, ChevronRight } from 'flowbite-svelte';
 
 
   const showThumbs = false;
@@ -52,32 +52,16 @@
 <p class="mb-2 font-bold">{zine.author}</p>
 <p>{zine.description}</p>
 
-<Pagination {pages} large on:previous={previous} on:next={next} icon  >
-  <svelte:fragment slot="prev">
-    <span class="sr-only">Previous</span>
-    <ChevronLeft class="w-5 h-5"/>
-  </svelte:fragment>
-  <svelte:fragment slot="next">
-    <span class="sr-only">Next</span>
-    <ChevronRight class="w-5 h-5"/>
-  </svelte:fragment>
-</Pagination>
 
-<Card class="max-w-full">
+<Card class="max-w-full my-4">
+  <div class="flex space-x-3 mb-2">
+    <PaginationItem large on:click={previous}>前ページ</PaginationItem>
+    <PaginationItem large on:click={next}>次ページ</PaginationItem>
+  </div>
+
   <a href="#" on:click|preventDefault={next}>
   <img src={`/zine-images/${username}/${d3.format('02d')(currentPage)}.jpg`} 
     alt={zine.title} class="max-h-[80vh] w-fit cursor-pointer"
    /></a>
 	<!-- <Carousel {images} {showThumbs} {showCaptions} {showIndicators} {divClass} /> -->
 </Card>
-
-<Pagination {pages} large on:previous={previous} on:next={next} icon  >
-  <svelte:fragment slot="prev">
-    <span class="sr-only">Previous</span>
-    <ChevronLeft class="w-5 h-5"/>
-  </svelte:fragment>
-  <svelte:fragment slot="next">
-    <span class="sr-only">Next</span>
-    <ChevronRight class="w-5 h-5"/>
-  </svelte:fragment>
-</Pagination>
