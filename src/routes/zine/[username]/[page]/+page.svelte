@@ -61,7 +61,7 @@
 
   <a href="#" on:click|preventDefault={next}>
   <img src={`/zine-images/${username}/${d3.format('02d')(currentPage)}.jpg`} 
-    alt={zine.title} class="max-h-[80vh] w-fit cursor-pointer"
+    alt={zine.title} class="max-h-[80vh] cursor-pointer"
    /></a>
 	<!-- <Carousel {images} {showThumbs} {showCaptions} {showIndicators} {divClass} /> -->
 </Card>
