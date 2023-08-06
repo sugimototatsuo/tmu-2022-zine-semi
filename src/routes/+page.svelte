@@ -26,7 +26,7 @@
     <p class="mb-4 p-4 w-full text-xl font-bold bg-red-800 text-white hover:bg-red-900">{zine.price}</p>
     <img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} />
     <div>
-      <Button class="w-fit mt-4" href={zine.available ? `zine/${zine.username}` : `#`}
+      <Button class="w-fit mt-4" href={zine.available ? `zine/${zine.username}/1` : `#`}
         disabled={!zine.available}>読む</Button>
       {#if zine.visibility === '限定公開'}<Badge class="w-fit" color="dark">限定公開</Badge>{/if}
     </div>
