@@ -24,7 +24,12 @@
   {#each zines as zine}
   <Card class="mb-8">
     <p class="mb-4 p-4 w-full text-xl font-bold bg-red-800 text-white hover:bg-red-900">{zine.price}</p>
-    <img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} />
+    {#if zine.available}
+      <a href={`zine/${zine.username}/1`}><img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} />
+      </a>
+    {:else}
+      <img class="cover" src={`/covers/${zine.username}.jpg`} alt={zine.title} />
+    {/if}
     <div>
       <Button class="w-fit mt-4" href={zine.available ? `zine/${zine.username}/1` : `#`}
         disabled={!zine.available}>読む</Button>

@@ -5,7 +5,7 @@ export async function load() {
   let zines = (await d3.tsv(uri, d3.autoType))
     .sort((a, b) => b.imgs - a.imgs)
     .sort((a, b) => a.visibility.localeCompare(b.visibility));
-  console.log(zines.length);
+  // console.log(zines.length);
 
   zines = zines.map(d => ({
     ...d,
